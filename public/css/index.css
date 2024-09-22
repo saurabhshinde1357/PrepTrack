@@ -1,0 +1,328 @@
+body {
+    background: #1b1b1b;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .light-mode {
+    background: #f8f9fa;
+    color: #212529;
+  }
+
+ .navbar {
+background-color: #111;
+padding: 0.5rem; /* Reduced padding */
+position: fixed;
+width: 100%;
+bottom: 0;
+border-top: 0.5px solid rgba(255, 255, 255, 0.2);
+z-index: 1000; /* Ensure it stays above other content */
+display: flex; /* Use flexbox */
+justify-content: space-between; /* Align items horizontally */
+align-items: center; /* Center items vertically */
+}
+
+.navbar-nav {
+display: flex; /* Ensure navbar items are in a row */
+}
+
+.navbar-nav .nav-item {
+margin: 0 5px; /* Reduced space between items */
+}
+
+.navbar-nav .nav-link {
+padding: 0.1rem 0.5rem; /* Adjusted padding for a thinner look */
+}
+
+
+
+  .light-mode .navbar {
+    background-color: #ffffff;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  .navbar-nav .nav-link {
+    color: yellow;
+    font-weight: bold;
+    margin: 0 15px;
+  }
+
+  .light-mode .navbar-nav .nav-link {
+    color: #007bff;
+  }
+
+  .profile-section {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .profile-section img {
+    border-radius: 50%;
+    margin-right: 10px;
+    width: 60px;
+  }
+
+  .notification-icons {
+    display: flex;
+    align-items: center;
+  }
+
+  .notification-icons .icon {
+    margin-left: 20px;
+    cursor: pointer;
+    color: gold;
+    font-size: 1.5rem;
+  }
+  /* Dropdown Menu Custom Styling */
+.dropdown-menu {
+background-color: #111; /* Dark background for the dropdown */
+border: none; /* Remove default border */
+box-shadow: 0 0 15px rgba(255, 223, 0, 0.5); /* Add glowing effect */
+}
+
+.dropdown-item {
+color: gold; /* Set text color to gold */
+font-weight: bold;
+padding: 10px 20px; /* Add padding for better spacing */
+transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+background-color: rgba(255, 255, 0, 0.2); /* Glow effect on hover */
+color: #fff; /* Change text color on hover */
+}
+
+
+  .light-mode .notification-icons .icon {
+    color: #343a40;
+  }
+
+  .btn-marks {
+    background-color: gold;
+    color: black;
+    font-weight: bold;
+    border-radius: 20px;
+    box-shadow: 0 0 10px yellow;
+  }
+
+  .btn-marks:hover {
+    box-shadow: 0 0 15px 5px yellow;
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    margin-top: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px 3px rgba(255, 255, 255, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .light-mode .card {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  .card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 0 30px 8px rgba(255, 255, 255, 0.4);
+  }
+html, body {
+height: 100%; /* Ensure the body takes full height */
+margin: 0; /* Remove default margin */
+display: flex;
+flex-direction: column; /* Stack elements vertically */
+}
+
+.main-content {
+flex: 1; /* Allow main content to grow and fill available space */
+}
+
+/* Footer Section */
+.footer-section {
+background-color: #111;
+padding: 40px 0;
+color: #fff;
+font-family: 'Arial', sans-serif;
+text-align: center;
+position: relative; /* Ensure it can be placed at the bottom */
+width: 100%;
+bottom: 0; /* Full width */
+}
+
+/* Other existing styles remain unchanged */
+.footer-section h5 {
+color: gold;
+font-size: 18px;
+margin-bottom: 20px;
+text-transform: uppercase;
+}
+
+.footer-section p {
+color: rgba(255, 255, 255, 0.7);
+font-size: 14px;
+}
+
+/* Footer Links */
+.footer-links,
+.contact-info,
+.footer-bottom-links {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+.footer-links li,
+.contact-info li,
+.footer-bottom-links li {
+margin-bottom: 10px;
+}
+
+/* Footer Links and Hover Effects */
+.footer-links a,
+.footer-bottom-links a {
+color: #fff;
+text-decoration: none;
+transition: color 0.3s ease;
+}
+
+.footer-links a:hover,
+.footer-bottom-links a:hover {
+color: gold;
+}
+
+/* Contact Info */
+.contact-info i {
+margin-right: 10px;
+color: gold;
+}
+
+/* Newsletter Form */
+.newsletter-form input {
+background-color: #222;
+border: none;
+padding: 10px;
+margin-bottom: 10px;
+color: #fff;
+width: 100%;
+}
+
+.newsletter-form button {
+background-color: gold;
+color: #111;
+border: none;
+padding: 10px;
+width: 100%;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+.newsletter-form button:hover {
+background-color: #ffcc00;
+}
+
+/* Social Links */
+.social-links a {
+display: inline-block;
+color: gold;
+font-size: 20px;
+margin-right: 15px;
+transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+color: #ffcc00;
+}
+
+/* Footer Bottom Links */
+.footer-bottom-links {
+text-align: right;
+}
+
+.footer-bottom-links li {
+display: inline-block;
+margin-left: 15px;
+}
+
+.footer-bottom-links a {
+font-size: 12px;
+}
+
+/* Particle Effect */
+.particle-effect {
+position: absolute;
+width: 100%;
+height: 100vh;
+pointer-events: none;
+background: url('particles.gif') repeat;
+opacity: 0.15;
+}
+
+/* Light Mode */
+.light-mode .footer-section {
+background-color: #ffffff;
+}
+
+.light-mode .footer-links a,
+.light-mode .footer-bottom-links a {
+color: #007bff;
+}
+
+/* Toggle Switch Styles */
+.toggle-container {
+display: flex;
+align-items: center;
+margin-left: auto;
+}
+
+.toggle {
+display: inline-block;
+width: 60px;
+height: 30px;
+background: #ccc;
+border-radius: 15px;
+position: relative;
+cursor: pointer;
+transition: background 0.3s;
+}
+
+.toggle.active {
+background: #4caf50;
+}
+
+.toggle::after {
+content: '';
+position: absolute;
+width: 28px;
+height: 28px;
+border-radius: 50%;
+background: white;
+top: 1px;
+left: 1px;
+transition: transform 0.3s;
+}
+
+.toggle.active::after {
+transform: translateX(30px);
+}
+
+/* Subject Icon & Name */
+.subject-icon {
+width: 80px;
+height: auto;
+}
+
+.subject-name {
+margin-left: 15px;
+font-weight: bold;
+font-size: 1.1rem;
+}
+
+/* Placeholder for Footer */
+.footer-placeholder {
+height: 100px; /* Height of your footer */
+clear: both; /* Clear floats */
+}
