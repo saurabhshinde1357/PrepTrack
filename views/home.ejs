@@ -1,0 +1,179 @@
+<%- include("./header.ejs") %>
+ <link rel="stylesheet" href="/css/index.css">
+ 
+  <!-- Profile Section -->
+  <div class="profile-section">
+    <img src="https://avatar.iran.liara.run/username?username=<%= userName %>" alt="Profile">    <h6>Hey <%-userName%>!</h6>
+    
+    <div class="notification-icons ml-auto">
+      <!-- Dropdown for Notifications -->
+      <div class="dropdown">
+        <span class="icon dropdown-toggle" id="notificationDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#128276;</span>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="notificationDropdown">
+          <a class="dropdown-item" href="#">Notification 1</a>
+          <a class="dropdown-item" href="#">Notification 2</a>
+          <a class="dropdown-item" href="#">Notification 3</a>
+        </div>
+      </div>
+      
+      <!-- Other Icons and Buttons -->
+      <span class="icon">&#127942;</span>
+
+        <button class="btn btn-marks ml-2" id="logout">Logout</button>
+     
+      <!-- Dark Mode Toggle Button -->
+      <div class="toggle-container ml-2">
+        <div id="darkModeToggle" class="toggle"></div>
+      </div>
+    </div>
+</div>
+
+ 
+
+
+  <!-- Cards Section -->
+  <div class="container mt-4">
+    <h3>Chapter wise PYQ Bank</h3>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card">
+          <img src="https://mycareersview.com/afile/mcv13828_mcv13681_JEEMAIN.jpg" class="card-img-top" alt="JEE Main">
+          <div class="card-body">
+            <h6>JEE Main</h6>
+            <p>2024 QS Added</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <img src="https://mycareersview.com/afile/mcv13826_jeeadv.jpg" class="card-img-top" alt="JEE Main">
+		
+          <div class="card-body">
+            <h6>JEE Advanced</h6>
+            <p>2024 QS Added</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3y3pbjdTtsemE7xD9pNO4AH5TPcPX47WKwQ&s" class="card-img-top" alt="Other Subject">
+          <div class="card-body">
+            <h6>MHT CET</h6>
+            <p>2024 QS Added</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWVSixAXa2Dvz3-SO8uExb6pQs6vOty0JE_Q&s" class="card-img-top" alt="More Resources">
+          <div class="card-body">
+            <h6>NEET</h6>
+            <p>2024 QS Added</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Formula Cards Section -->
+ <div class="container mt-4">
+  <h3>Formula Cards</h3>
+  <div class="row">
+    <!-- Maths Card -->
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-body d-flex justify-content-between align-items-center">
+          <!-- Icon on the left -->
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVWm9IbD3Wc3GtcYl_hHvJFU2eolfvwCU7nw&s" alt="Maths Icon" class="subject-icon">
+          <!-- Subject Name on the right -->
+          <h6 class="subject-name">Maths</h6>
+        </div>
+      </div>
+    </div>
+    <!-- Physics Card -->
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-body d-flex justify-content-between align-items-center">
+          <img src="https://static.vecteezy.com/system/resources/previews/000/459/729/non_2x/vector-atom-logo-symbol-3d.jpg" alt="Physics Icon" class="subject-icon">
+          <h6 class="subject-name">Physics</h6>
+        </div>
+      </div>
+    </div>
+    <!-- Chemistry Card -->
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-body d-flex justify-content-between align-items-center">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbTY3sIv29U7jkEPA_fxQNcGNfm18o-1_MGQ&s" alt="Chemistry Icon" class="subject-icon">
+          <h6 class="subject-name">Chemistry</h6>
+        </div>
+      </div>
+    </div>
+    <!-- Biology Card -->
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-body d-flex justify-content-between align-items-center">
+          <img src="https://www.shutterstock.com/image-illustration/molecule-3d-illustration-biology-chemistry-260nw-1863624373.jpg" alt="Biology Icon" class="subject-icon">
+          <h6 class="subject-name">Biology</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Recent Chapters Section -->
+  <div class="container mt-4">
+    <h3>Recent Chapters</h3>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-title">Chapter 1: Introduction</h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-title">Chapter 2: Basics</h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-title">Chapter 3: Advanced Topics</h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-title">Chapter 4: Review</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<script>
+  const logoutBtn = document.querySelector("#logout");
+  logoutBtn.addEventListener("click", async()=>{
+    try{
+      await fetch("/auth/logout", {
+      method: "put"
+    });
+    window.location.href = "/auth/login";
+    }catch{}
+   
+
+  })
+</script>
+
+<%- include("./footer.ejs") %>

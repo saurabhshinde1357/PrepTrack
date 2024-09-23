@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body>
+    <div class="container" id="container">
+
+        <div class="form-container sign-up">
+            <form action="auth/signup" id="signupForm" method="post" enctype="application/x-www-form-urlencoded">
+                <div id="signupMessage" class="message-box">You have signed up successfully!</div>
+                <h1>Create Account</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+                <span>or use your email for register</span>
+                <input type="text" name="fname" placeholder="Full Name" id="fullname">
+                <input type="email" name="email" placeholder="Email" id="email">
+                <input type="password" name="password" placeholder="Password" id="password">
+                <button type="button" id="signupButton">Sign Up</button>
+            </form>
+        </div>
+
+        <div class="form-container sign-in">
+            <form action="#" id="signInForm">
+                <h1>Sign In</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+                <span>or use your email and password</span>
+                <input type="email" name="email" placeholder="Email">
+                <input type="password" name="password" placeholder="Password">
+
+                <button>Sign In</button>
+            </form>
+        </div>
+
+        <div class="toggle-container">
+            <div class="toggle">
+
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all PrepMate.</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Student!</h1>
+                    <p>Register with your personal details to use PrepMate.</p>
+                    <button class="hidden" id="register">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get the elements for Sign In and Sign Up
+        const container = document.getElementById("container");
+        const registerBtn = document.getElementById("register");
+        const loginBtn = document.getElementById("login");
+        const signupForm = document.getElementById("signupForm");
+        const signupButton = document.getElementById("signupButton");
+        const signupMessage = document.getElementById("signupMessage");
+
+        // Get Sign Up input fields
+        const fullname = document.querySelector("input[placeholder='Full Name']");
+        const email = document.querySelector("input[placeholder='Email']");
+        const password = document.querySelector("input[placeholder='Password']");
+
+        // Get Sign In input fields
+        const signinForm = document.querySelector(".form-container.sign-in form"); // Adjusted to select the correct form
+        const signinButton = signinForm.querySelector("button"); // Get the button inside the Sign In form
+        const signinEmail = signinForm.querySelector("input[placeholder='Email']"); // Ensure correct input selector
+        const signinPassword = signinForm.querySelector("input[placeholder='Password']"); // Ensure correct input selector
+
+        // Toggle between Sign In and Sign Up
+        registerBtn.addEventListener("click", () => {
+            container.classList.add("active");
+        });
+
+        loginBtn.addEventListener("click", () => {
+            container.classList.remove("active");
+        });
+
+        // Sign Up validation
+        signupButton.addEventListener("click", async (e) => {
+            e.preventDefault(); // Prevent default form submission
+            if (fullname.value.trim() !== "" && email.value.trim() !== "" && password.value.trim() !== "") {
+                // Show success message
+                signupMessage.style.display = "block";
+
+                //sending form data to server 
+
+
+                try {
+                    const formData = new FormData(signupForm);
+
+                    // Convert FormData to JSON object
+                    const jsonData = {};
+                    formData.forEach((value, key) => {
+                        jsonData[key] = value;
+                    });
+
+                    const response = await fetch('/auth/signup', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(jsonData),
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        window.location.href = "/";
+                        // Clear input fields
+                        signupForm.reset();
+
+                        // Hide message after 3 seconds
+                        setTimeout(() => {
+                            signupMessage.style.display = "none";
+                        }, 3000);
+                    }
+                    else {
+                        alert(result.message);
+                    }
+
+
+                }
+                catch (e) {
+                    alert("Failed to sign up...!");
+                }
+            } else {
+                alert("Please fill in all fields before signing up.");
+            }
+        });
+
+        // Sign In validation and redirect
+        signinButton.addEventListener("click", async (e) => {
+            e.preventDefault(); // Prevent default form submission
+
+            // Check if all Sign In fields are filled
+            if (signinEmail.value.trim() === "" || signinPassword.value.trim() === "") {
+                alert("Please fill in all fields before signing in.");
+                return; // Stop execution if fields are empty
+            }
+
+            try {
+                const form = document.querySelector("#signInForm");
+                const formData = new FormData(form);
+
+                // Convert FormData to JSON object
+                const jsonData = {};
+                formData.forEach((value, key) => {
+                    jsonData[key] = value;
+                });
+
+                const response = await fetch('/auth/signin', {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(jsonData),
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    window.location.href = "/";
+                    // Clear input fields
+                    signupForm.reset();
+
+                    // Hide message after 3 seconds
+                    setTimeout(() => {
+                        signupMessage.style.display = "none";
+                    }, 3000);
+                }
+                else {
+                    alert(result.message);
+                }
+
+
+            }
+            catch (e) {
+                console.log(e)
+                alert("Failed to sign up...!");
+            }
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>
