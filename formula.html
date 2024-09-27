@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Formula Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1a1a1a, #4e4e4e);
+            color: #ffffff;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 50px;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 4em;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 50px;
+        }
+
+        .subject {
+            position: relative;
+            margin-bottom: 60px;
+            padding: 30px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #00bcd4;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .subject-image {
+            width: 25%;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .card {
+            flex: 0 0 calc(22% - 20px);
+            margin: 10px;
+            padding: 20px;
+            border-radius: 20px;
+            background: #222222;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            position: relative;
+            cursor: pointer;
+            opacity: 0; /* Start invisible for GSAP */
+            transform: translateY(50px); /* Start from below */
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid #00bcd4;
+        }
+
+        .card h3 {
+            margin: 10px 0;
+            font-size: 1.8em;
+            color: #00bcd4;
+        }
+
+        .card p {
+            font-size: 1.2em;
+            color: #dddddd;
+        }
+
+        .view-all {
+            display: block;
+            margin: 30px auto;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            background: #00bcd4;
+            color: #ffffff;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: background 0.3s;
+            opacity: 0; /* Start invisible for GSAP */
+            transform: translateY(50px); /* Start from below */
+        }
+
+        .view-all:hover {
+            background: #0097a7;
+        }
+
+        /* Particle Animation */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Custom styles for modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #222222;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            opacity: 0; /* Start invisible for GSAP */
+            transform: scale(0.5); /* Start scaled down */
+            transition: opacity 0.3s, transform 0.3s; /* Added transition for smooth effect */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #ffffff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                flex: 0 0 calc(45% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                flex: 0 0 calc(100% - 20px);
+            }
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+</head>
+<body>
+    <div class="particles" id="particles-js"></div>
+    
+    <div class="container">
+        <h1> Formula Hub</h1>
+        
+        <!-- Physics Section -->
+      <div class="subject">
+    <img src="https://cdn-icons-png.flaticon.com/512/181/181964.png" alt="Physics" class="subject-image" >
+    <div class="header">Physics</div>
+    <div class="tags">
+        <span class="tag">Electromagnetism</span>
+        <span class="tag">Thermodynamics</span>
+        <span class="tag">Optics</span>
+    </div>
+    <div class="cards">
+        <div class="card" onclick="openModal('Current Electricity')">
+            <h3>Current Electricity</h3>
+            <p>39 Formulas</p>
+        </div>
+        <div class="card" onclick="openModal('Semiconductors')">
+            <h3>Semiconductors</h3>
+            <p>51 Formulas</p>
+        </div>
+        <div class="card" onclick="openModal('Alternating Current')">
+            <h3>Alternating Current</h3>
+            <p>11 Formulas</p>
+        </div>
+        <div class="card" onclick="openModal('Optics')">
+            <h3>Optics</h3>
+            <p>25 Formulas</p>
+        </div>
+        <div class="card" onclick="openModal('Optics')">
+            <h3>Optics</h3>
+            <p>25 Formulas</p>
+        </div>
+        <div class="card" onclick="openModal('Optics')">
+            <h3>Optics</h3>
+            <p>25 Formulas</p>
+        </div>
+    </div>
+    <button class="view-all" onclick="viewAll('Physics')">View All</button>
+</div>
+
+<!-- Chemistry Section -->
+<div class="subject">
+    <img src="https://cdn.pixabay.com/photo/2016/03/31/17/35/chemical-1293762_1280.png" alt="Chemistry" class="subject-image" >
+    <div class="header">Chemistry</div>
+    <div class="tags">
+        <span class="tag">Organic Chemistry</span>
+        <span class="tag">Inorganic Chemistry</span>
+        <span class="tag">Physical Chemistry</span>
+    </div>
+    <div class="cards">
+        <div class="card" onclick="openModal('General Organic Chemistry')">
+            <h3>General Organic Chemistry</h3>
+            <p>40 Formulas</p>
+        </div>
+        <div class="card" onclick="openModal('Coordination Compounds')">
+            <h3>Coordination Compounds</h3>
+            <p>38 Formulas</p>
+        </div>
+        <div class="card" onclick="openModal('Amines')">
+            <h3>Amines</h3>
+            <p>42 Formulas</p>
+        </div>
+        <div class="card" onclick="openModal('Thermodynamics')">
+            <h3>Thermodynamics</h3>
+            <p>30 Formulas</p>
+        </div>
+        <div class="card" onclick="openModal('Thermodynamics')">
+            <h3>Thermodynamics</h3>
+            <p>30 Formulas</p>
+        </div>
+        <div class="card" onclick="openModal('Thermodynamics')">
+            <h3>Thermodynamics</h3>
+            <p>30 Formulas</p>
+        </div>
+    </div>
+    <button class="view-all" onclick="viewAll('Chemistry')">View All</button>
+</div>
+
+<!-- Mathematics Section -->
+<div class="subject">
+    <img src="https://i.pinimg.com/474x/b6/15/a9/b615a921e6b3227b9f1cf4f63bce6976.jpg" alt="Mathematics" >
+    <div class="header">Mathematics</div>
+    <div class="tags">
+        <span class="tag">Algebra</span>
+        <span class="tag">Calculus</span>
+        <span class="tag">Statistics</span>
+    </div>
+    <div class="cards">
+        <div class="card" onclick="openModal('Algebra')">
+            <h3>Algebra</h3>
+            <p>45 Formulas</p>
+        </div>
+        <div class="card" onclick="openModal('Calculus')">
+            <h3>Calculus</h3>
+            <p>35 Formulas</p>
+        </div>
+        <div class="card" onclick="openModal('Geometry')">
+            <h3>Geometry</h3>
+            <p>30 Formulas</p>
+        </div>
+        <div class="card" onclick="openModal('Statistics')">
+            <h3>Statistics</h3>
+            <p>50 Formulas</p>
+        </div>
+        <div class="card" onclick="openModal('Statistics')">
+            <h3>Statistics</h3>
+            <p>50 Formulas</p>
+        </div>
+        <div class="card" onclick="openModal('Statistics')">
+            <h3>Statistics</h3>
+            <p>50 Formulas</p>
+        </div>
+    </div>
+    <button class="view-all" onclick="viewAll('Mathematics')">View All</button>
+</div>
+
+            
+
+        <!-- Modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 id="modal-title">Title</h2>
+                <p id="modal-content">Content goes here.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // GSAP Animations for cards and buttons
+        gsap.to('.card', {
+            opacity: 1,
+            y: 0,
+            stagger: 0.2,
+            duration: 0.5,
+            delay: 0.5
+        });
+
+        gsap.to('.view-all', {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            delay: 1
+        });
+
+        // Open modal
+        function openModal(title) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-content').innerText = 'Details about ' + title + ' go here.';
+            document.getElementById('myModal').style.display = "block";
+
+            // GSAP animation for modal content
+            gsap.fromTo('.modal-content', { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.3 });
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('myModal').style.display = "none";
+        }
+
+        // Function for View All button
+        function viewAll(subject) {
+            alert('Viewing all formulas for ' + subject);
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('myModal')) {
+                closeModal();
+            }
+        };
+    </script>
+</body>
+</html>

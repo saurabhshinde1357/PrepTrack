@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEE Advance Subject List</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4fa;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 30px;
+        }
+/* Back Button Styling */
+.back-button {
+    margin-bottom: 20px;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3);
+}
+
+.back-btn:hover {
+    background-color: #0056b3;
+    box-shadow: 0 12px 20px rgba(0, 123, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.back-btn:active {
+    transform: translateY(1px);
+}
+
+.back-btn .arrow {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    transition: margin-right 0.3s ease;
+}
+
+.back-btn:hover .arrow {
+    margin-right: 15px;
+}
+
+        .header-content h1 {
+            font-size: 3rem;
+            color: #222;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .year-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 1.2rem;
+            color: #666;
+            padding-top: 10px;
+        }
+
+        .year-info p {
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .tab {
+            padding: 15px 25px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #007bff;
+            background: none;
+            cursor: pointer;
+            border: none;
+            border-bottom: 4px solid transparent;
+            transition: all 0.4s ease;
+        }
+
+        .tab.active {
+            color: #222;
+            border-bottom: 4px solid #007bff;
+        }
+
+        .tab:hover {
+            color: #007bff;
+        }
+
+        .subjects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            padding: 20px;
+        }
+
+        .subject-card {
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+        }
+
+        .subject-card h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .subject-card p {
+            font-size: 1.1rem;
+            color: #777;
+            font-weight: 500;
+        }
+
+        .subject-icon img {
+            width: 60px;
+            transition: transform 0.4s ease;
+        }
+
+        .subject-card:hover .subject-icon img {
+            transform: rotate(15deg);
+        }
+
+        .physics {
+            border-left: 6px solid #ff7f50;
+        }
+
+        .chemistry {
+            border-left: 6px solid #48c774;
+        }
+
+        .mathematics {
+            border-left: 6px solid #3f51b5;
+        }
+
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2rem;
+            }
+
+            .year-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .tab {
+                font-size: 1rem;
+            }
+
+            .subject-card {
+                padding: 20px;
+            }
+
+            .subject-card h2 {
+                font-size: 1.4rem;
+            }
+
+            .subject-card p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <!-- Back Button HTML -->
+<div class="back-button">
+    <a href="intro.html" class="back-btn">
+        <span class="arrow">&larr;</span> Back to Home
+    </a>
+</div>
+
+            </div>
+            <div class="header-content">
+                <h1>JEE Advance Subjects</h1>
+                <div class="year-info">
+                    <p><strong>Years</strong>: 2024 - 2008</p>
+                    <p><strong>Papers</strong>: 37</p>
+                    <p><strong>Questions</strong>: 2220</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs Section -->
+        <div class="tabs">
+            <button class="tab active" onclick="setActiveTab(this)">Previous Year Qs</button>
+            <button class="tab" onclick="setActiveTab(this)">NTA Abhyas</button>
+        </div>
+
+        <!-- Subjects Section -->
+        <div class="subjects">
+            <div class="subject-card physics">
+                <div class="subject-info">
+                    <h2>Physics</h2>
+                    <p>30 Chapters, 740 Qs</p>
+                </div>
+                <div class="subject-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/7614/7614875.png" alt="icon">
+                </div>
+            </div>
+            <div class="subject-card chemistry">
+                <div class="subject-info">
+                    <h2>Chemistry</h2>
+                    <p>32 Chapters, 740 Qs</p>
+                </div>
+                <div class="subject-icon">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK5-_isxR_O4BOoy66u3Ue3CfArki8GmkuuA&s" alt="Chemistry Icon">
+                </div>
+            </div>
+            <div class="subject-card mathematics">
+                <div class="subject-info">
+                    <h2>Mathematics</h2>
+                    <p>32 Chapters, 740 Qs</p>
+                </div>
+                <div class="subject-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2201/2201544.png" alt="Mathematics Icon">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function setActiveTab(tab) {
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            // Add active class to the clicked tab
+            tab.classList.add('active');
+        }
+    </script>
+</body>
+</html>
