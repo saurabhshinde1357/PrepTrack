@@ -73,7 +73,7 @@ const signIn = async (req, res) =>{
     catch(error){
         res.status(500).send({
             success: "false",
-            message: "User sing in failed."
+            message: "User sign in failed."
         });
     }
 }
