@@ -47,6 +47,7 @@ require("./config/db_config");
 // import routers
 const home = require("./routes/home.router");
 const auth = require("./routes/auth.router");
+const formula = require("./routes/formula.router");
 
 // use routers
 app.use("/",home);
