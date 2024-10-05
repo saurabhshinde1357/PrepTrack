@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics Chapters - JEE/NEET Prep</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #101820;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 300vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #00bfa6;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        .chapter {
+            margin: 10px;
+            padding: 15px;
+            background-color: #00bfa6;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 300px;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        .chapter:hover {
+            background-color: #008f79;
+        }
+
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #282c34;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .video-iframe {
+            width: 100%;
+            height: 300px; /* Set a height for the iframe */
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .notes-link {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .notes-link a {
+            color: white;
+            background-color: #00bfa6;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .notes-link a:hover {
+            background-color: #008f79;
+        }
+
+        .chapters-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .chapter {
+            margin: 10px 0;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Physics Chapters for JEE</h2>
+
+    <h2>11th Grade Chapters</h2>
+    <div class="chapters-container">
+        <div class="chapter" data-video="PpQ1RUP5ooQ" data-pdf="notes/chapter1.pdf">Chapter 1: Motion in a Straight Line</div>
+        <div class="chapter" data-video="4tMZzYfyfDw" data-pdf="notes/chapter2.pdf">Chapter 2: Laws of Motion</div>
+        <div class="chapter" data-video="Y8o6e2m9c5Y" data-pdf="notes/chapter3.pdf">Chapter 3: Work, Energy and Power</div>
+        <div class="chapter" data-video="JZfS7L3QjHk" data-pdf="notes/chapter4.pdf">Chapter 4: System of Particles and Rotational Motion</div>
+        <div class="chapter" data-video="R8CPx21QMIQ" data-pdf="notes/chapter5.pdf">Chapter 5: Gravitation</div>
+        <div class="chapter" data-video="XEqxq_zDgq4" data-pdf="notes/chapter6.pdf">Chapter 6: Properties of Bulk Matter</div>
+        <div class="chapter" data-video="H-Oe_yGzVM4" data-pdf="notes/chapter7.pdf">Chapter 7: Thermodynamics</div>
+        <div class="chapter" data-video="Of0HPR4d8M0" data-pdf="notes/chapter8.pdf">Chapter 8: Behavior of Perfect Gas and Kinetic Theory</div>
+        <div class="chapter" data-video="FRH3HfsYw6o" data-pdf="notes/chapter9.pdf">Chapter 9: Oscillations</div>
+        <div class="chapter" data-video="V2n8AYkb4Lg" data-pdf="notes/chapter10.pdf">Chapter 10: Waves</div>
+    </div>
+
+    <h2>12th Grade Chapters</h2>
+    <div class="chapters-container">
+        <div class="chapter" data-video="tOCEp49ozNY" data-pdf="notes/chapter11.pdf">Chapter 11: Electrostatics</div>
+        <div class="chapter" data-video="vhkPbCtsG5E" data-pdf="notes/chapter12.pdf">Chapter 12: Current Electricity</div>
+        <div class="chapter" data-video="g1I7zFDOi2w" data-pdf="notes/chapter13.pdf">Chapter 13: Magnetic Effects of Current and Magnetism</div>
+        <div class="chapter" data-video="sbc91ClKzLs" data-pdf="notes/chapter14.pdf">Chapter 14: Electromagnetic Induction and Alternating Currents</div>
+        <div class="chapter" data-video="VcC4D7SPy0A" data-pdf="notes/chapter15.pdf">Chapter 15: Electromagnetic Waves</div>
+        <div class="chapter" data-video="kLDo8Y-9bqU" data-pdf="notes/chapter16.pdf">Chapter 16: Optics</div>
+        <div class="chapter" data-video="u55IjRZpzBk" data-pdf="notes/chapter17.pdf">Chapter 17: Dual Nature of Matter and Radiation</div>
+        <div class="chapter" data-video="lC49D05WfE0" data-pdf="notes/chapter18.pdf">Chapter 18: Atoms and Nuclei</div>
+        <div class="chapter" data-video="Qj8sY4soOr0" data-pdf="notes/chapter19.pdf">Chapter 19: Electronic Devices</div>
+    </div>
+
+    <!-- Modal for Video -->
+    <div class="modal" id="video-modal">
+        <span id="close-modal" class="close">&times;</span>
+        <div class="modal-content">
+            <iframe id="chapter-video" class="video-iframe" frameborder="0" allowfullscreen></iframe>
+            <div class="notes-link">
+                <a id="notes-link" href="#" download>Download Notes</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+ // Load the IFrame Player API code asynchronously
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// Create a YouTube player variable
+var player;
+
+// This function creates an <iframe> (and YouTube player)
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('chapter-video', {
+        height: '300',
+        width: '100%',
+        events: {
+            'onStateChange': onPlayerStateChange
+        }
+    });
+}
+
+// Function to handle video state changes
+function onPlayerStateChange(event) {
+    // You can add any additional behavior for video state changes here if needed
+}
+
+const chapters = document.querySelectorAll('.chapter');
+const modal = document.getElementById('video-modal');
+const closeModal = document.getElementById('close-modal');
+const chapterVideo = document.getElementById('chapter-video');
+const notesLink = document.getElementById('notes-link');
+
+chapters.forEach(chapter => {
+    chapter.addEventListener('click', () => {
+        const videoId = chapter.getAttribute('data-video'); // Corrected attribute to get video ID
+        const pdfLink = chapter.getAttribute('data-pdf');
+
+        // Use the video ID to load the video
+        chapterVideo.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`; // Use embed URL
+        notesLink.href = pdfLink;
+
+        modal.style.display = 'flex'; // Use flex to center modal content
+    });
+});
+
+// Add your video IDs and PDF links for all chapters here
+// Video IDs extracted from the full YouTube links
+const videoIds = [
+    'PpQ1RUP5ooQ', // Chapter 1
+    'PpQ1RUP5ooQ', // Chapter 2
+    'PpQ1RUP5ooQ', // Chapter 3
+    'PpQ1RUP5ooQ', // Chapter 4
+    'PpQ1RUP5ooQ', // Chapter 5
+    'PpQ1RUP5ooQ', // Chapter 6
+    'PpQ1RUP5ooQ', // Chapter 7
+    'PpQ1RUP5ooQ', // Chapter 8
+    'PpQ1RUP5ooQ', // Chapter 9
+    'PpQ1RUP5ooQ', // Chapter 10
+    'vP9LzR8zupE', // Chapter 11
+    'vP9LzR8zupE', // Chapter 12
+    'vP9LzR8zupE', // Chapter 13
+    'vP9LzR8zupE', // Chapter 14
+    'vP9LzR8zupE', // Chapter 15
+    'vP9LzR8zupE', // Chapter 16
+    'vP9LzR8zupE', // Chapter 17
+    'vP9LzR8zupE', // Chapter 18
+    'vP9LzR8zupE'  // Chapter 19
+];
+
+// PDF Links for all chapters
+const pdfLinks = [
+    '', // Chapter 1: Add your PDF link here
+    '', // Chapter 2: Add your PDF link here
+    '', // Chapter 3: Add your PDF link here
+    '', // Chapter 4: Add your PDF link here
+    '', // Chapter 5: Add your PDF link here
+    '', // Chapter 6: Add your PDF link here
+    '', // Chapter 7: Add your PDF link here
+    '', // Chapter 8: Add your PDF link here
+    '', // Chapter 9: Add your PDF link here
+    '', // Chapter 10: Add your PDF link here
+    '', // Chapter 11: Add your PDF link here
+    '', // Chapter 12: Add your PDF link here
+    '', // Chapter 13: Add your PDF link here
+    '', // Chapter 14: Add your PDF link here
+    '', // Chapter 15: Add your PDF link here
+    '', // Chapter 16: Add your PDF link here
+    '', // Chapter 17: Add your PDF link here
+    '', // Chapter 18: Add your PDF link here
+    '', // Chapter 19: Add your PDF link here
+];
+
+// You can then assign these video IDs and PDF links to the chapters as shown previously
+chapters.forEach((chapter, index) => {
+    chapter.setAttribute('data-video', videoIds[index]);
+    chapter.setAttribute('data-pdf', pdfLinks[index]);
+});
+
+
+
+
+closeModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+    chapterVideo.src = ""; // Stop the video when closing modal
+});
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        chapterVideo.src = ""; // Stop the video when closing modal
+    }
+}
+
+
+    </script>
+
+</body>
+</html>
