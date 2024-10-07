@@ -48,10 +48,13 @@ require("./config/db_config");
 const home = require("./routes/home.router");
 const auth = require("./routes/auth.router");
 const formula = require("./routes/formula.router");
+const options = require("./routes/option.router");
 
 // use routers
 app.use("/",home);
 app.use("/auth",auth);
+app.use("/formula",formula);
+app.use("/options",options);
 
 // listening app
 app.listen(port,()=>{

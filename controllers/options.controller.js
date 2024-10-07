@@ -1,5 +1,5 @@
 const getOptions = (req, res) => {
-    const type = req.params.type;
+    const type = parseInt(req.params.type);
 
     switch(type) {
         case 1:
