@@ -50,6 +50,7 @@ const auth = require("./routes/auth.router");
 const formula = require("./routes/formula.router");
 const options = require("./routes/option.router");
 const subjects = require("./routes/subject.router");
+const loader = require("./routes/loader.router");
 
 // use routers
 app.use("/",home);
@@ -57,6 +58,7 @@ app.use("/auth",auth);
 app.use("/formula", formula);
 app.use("/options", options);
 app.use("/subjects", subjects);
+app.use("/loader", loader);
 
 // listening app
 app.listen(port,()=>{
