@@ -1,7 +1,7 @@
-const getFormulPage = (req, res) => {
+const formulaPage = (req, res) => {
     res.render("formula");
 }
 
 module.exports = {
-    getFormulPage,
+    formulaPage,
 }

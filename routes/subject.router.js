@@ -1,9 +1,9 @@
 const express = require("express");
 const router = new express.Router();
-const { formulaPage } = require("../controllers/formula.controller"); 
+const { getSubjects } = require("../controllers/subject.controller");
 
 const userAuthMiddleware = require("../middlewares/userAuth.middleware");
 
-router.get("/formula", userAuthMiddleware, formulaPage);
+router.get("/jee/:type", userAuthMiddleware, getSubjects);
 
 module.exports = router;
